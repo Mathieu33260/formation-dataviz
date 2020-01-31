@@ -33,14 +33,14 @@ const request = async () => {
     const bar = document.getElementById('container');
     bar.style.height = '50px';
     bar.style.width = '2000px';
-    types = types.filter(type => type.name !== 'None');
+    types = types.filter(type => type.name !== 'None').sort((type1, type2) => type1.nb > type2.nb ? -1 : 1);
     types.forEach(type => {
         let percent = type.nb / sum * 100;
         let color = getRandomColor();
         console.log(type.name + ' ' + percent + ' ' + color);
         const typeBar = document.createElement('div');
         typeBar.style.height = '50px';
-        typeBar.style.width = percent * 20 + 'px';
+        typeBar.style.width = percent * 50 + 'px';
         typeBar.style.backgroundColor = color;
         typeBar.textContent = type.name;
         bar.append(typeBar);
