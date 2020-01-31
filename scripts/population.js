@@ -14,15 +14,15 @@ const request = async () => {
     let sum = data.map(city => city.population).reduce((acc, current) => acc + current);
     console.log(sum);
     const bar = document.getElementById('bar');
-    bar.style.height = '100px';
-    bar.style.width = '1000px';
+    bar.style.height = '50px';
+    bar.style.width = '2000px';
     data.forEach(city => {
         let percent = city.population / sum * 100;
         let color = getRandomColor();
         console.log(city.name + ' ' + percent + ' ' + color);
         const cityBar = document.createElement('div');
-        cityBar.style.height = '100px';
-        cityBar.style.width = percent * 10 + 'px';
+        cityBar.style.height = '50px';
+        cityBar.style.width = percent * 20 + 'px';
         cityBar.style.backgroundColor = color;
         cityBar.textContent = city.name;
         bar.append(cityBar);
